@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        #colorBg{
+            /* background: red; */
+            width: 100vw;
+            height: 100vh;
+        }
+        .color-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        }
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+    <div id="colorBg">
+        <div class="color-box">
+            <input id="colorCode" type="text" placeholder="color">
+            <button onclick="colorchange()">Generate Color</button>
+        </div>
+    </div>
+
+    
+    <script>
+
+        let code = "1234567890abcdef";
+        function colorchange(){
+           
+           let colorGenerate = '#'
+            let b = document.querySelector("#colorCode").value
+            for(i = 0; i < 6; i++){
+                
+                 colorGenerate += code[Math.floor(Math.random() * code.length)]
+                b = colorGenerate;
+                document.querySelector('#colorBg').style.background = b;        
+            }
+            document.querySelector('#colorCode').value = b;
+        }
+
+
+    </script>
+    
+</body>
+</html>
